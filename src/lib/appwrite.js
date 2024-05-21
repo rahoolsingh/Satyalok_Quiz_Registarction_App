@@ -2,19 +2,24 @@ import { Client, Databases, Storage, ID } from "appwrite";
 
 class AppwriteClient {
     constructor() {
+        console.log(
+            process.env.REACT_APP_APPWRITE_ENDPOINT,
+        );
         this.client = new Client()
-            .setEndpoint("https://cloud.appwrite.io/v1")
-            .setProject("664cd226000ffa752eab");
+            .setEndpoint(process.env.REACT_APP_APPWRITE_ENDPOINT) // Your API Endpoint
+            .setProject(process.env.REACT_APP_APPWRITE_PROJECT_ID); // Your Project ID
 
         this.databases = new Databases(this.client);
         this.storage = new Storage(this.client);
+
+        console.log(this.client, this.databases, this.storage);
     }
 
     async createDocument(documentData) {
         try {
             const response = await this.databases.createDocument(
-                "664cd2a4000f7bcf061f", // Replace this with your Database ID
-                "664cd3130024ecc1bc35", // Replace this with your Collection ID
+                process.env.REACT_APP_APPWRITE_DATABASE_ID, // Replace this with your Database ID
+                process.env.REACT_APP_APPWRITE_COLLECTION_ID, // Replace this with your Collection ID
                 ID.unique(),
                 documentData
             );
@@ -29,7 +34,7 @@ class AppwriteClient {
     async uploadPhoto(file) {
         try {
             const response = await this.storage.createFile(
-                "664cdc16001c7307443b", // Replace with your actual bucket ID
+                process.env.REACT_APP_APPWRITE_STORAGE_BUCKET_ID, // Replace with your actual bucket ID
                 ID.unique(),
                 file
             );
