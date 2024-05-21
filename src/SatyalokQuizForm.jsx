@@ -46,13 +46,6 @@ const SatyalokQuizForm = () => {
         data.append(key, values[key]);
       }
 
-      try {
-        // Replace with your API endpoint
-        const response = await axios.post('/api/submit', data);
-        console.log('Form submitted successfully:', response.data);
-      } catch (error) {
-        console.error('Error submitting form:', error);
-      }
     },
   });
 
