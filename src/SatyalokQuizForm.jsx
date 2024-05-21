@@ -1,7 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 import './App.css';
 
 const SatyalokQuizForm = () => {
@@ -83,7 +82,7 @@ const SatyalokQuizForm = () => {
         {formik.touched.schoolName && formik.errors.schoolName ? <div className="error">{formik.errors.schoolName}</div> : null}
       </label>
       <label>
-        Medium of Language:
+        Medium of Study (Select one):
         <select name="medium" onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.medium}>
           <option value="Hindi">Hindi</option>
           <option value="English">English</option>
