@@ -23,6 +23,28 @@ const Home = () => {
 
     const navigate = useNavigate();
 
+    const handleError = (error) => {
+        if (typeof error === "string") {
+            setError(error);
+        } else {
+            setError(error.message);
+        }
+        setLoading(false);
+
+        // document.documentElement.scrollTop = 0;
+        // document.body.style.overflow = "hidden";
+
+        setTimeout(() => {
+            setError(null);
+            // document.body.style.overflow = "auto";
+        }, 5000);
+    };
+
+    const removeError = () => {
+        setError(null);
+        document.body.style.overflow = "auto";
+    };
+
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -78,6 +100,16 @@ const Home = () => {
             const formData = Object.fromEntries(data.entries());
 
             try {
+                const mobilePresent = await appwriteClient.checkMobilePresent(
+                    formData.mobile
+                );
+
+                if (mobilePresent.documents.length > 0) {
+                    handleError("Mobile number already registered");
+                    setLoading(false);
+                    return;
+                }
+
                 const photoRes = await appwriteClient.uploadPhoto(
                     formData.photo
                 );
@@ -111,7 +143,7 @@ const Home = () => {
                 setLoading(false);
             } catch (error) {
                 console.error(error);
-                setError(error.message);
+                handleError(error);
                 setLoading(false);
             }
         },
@@ -361,9 +393,15 @@ const Home = () => {
                 </div>
             )}
             {error && (
-                <div className="absolute w-full h-dvh top-0 left-0">
-                    <div className="bg-red-500 text-white p-4 text-center">
-                        {error}
+                <div className="fixed bottom-10 w-full md:px-10 transform -translate-x-1/2 left-1/2 transition-all duration-300 ease-in-out">
+                    <div
+                        role="alert"
+                        className="max-w-3xl w-[80%] flex md:ml-auto md:mr-0 m-auto items-center justify-between bg-red-500 text-white p-4 rounded-md shadow-md gap-4"
+                    >
+                        <span>{error}</span>
+                        <button onClick={removeError}>
+                            <i className="fa fa-close"></i>
+                        </button>
                     </div>
                 </div>
             )}
