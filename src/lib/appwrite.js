@@ -2,9 +2,7 @@ import { Client, Databases, Storage, ID } from "appwrite";
 
 class AppwriteClient {
     constructor() {
-        console.log(
-            process.env.REACT_APP_APPWRITE_ENDPOINT,
-        );
+
         this.client = new Client()
             .setEndpoint(process.env.REACT_APP_APPWRITE_ENDPOINT) // Your API Endpoint
             .setProject(process.env.REACT_APP_APPWRITE_PROJECT_ID); // Your Project ID
@@ -12,7 +10,6 @@ class AppwriteClient {
         this.databases = new Databases(this.client);
         this.storage = new Storage(this.client);
 
-        console.log(this.client, this.databases, this.storage);
     }
 
     async createDocument(documentData) {
@@ -23,10 +20,8 @@ class AppwriteClient {
                 ID.unique(),
                 documentData
             );
-            console.log(response);
             return response;
         } catch (error) {
-            console.log(error);
             throw error;
         }
     }
@@ -38,10 +33,8 @@ class AppwriteClient {
                 ID.unique(),
                 file
             );
-            // console.log(response);
             return response;
         } catch (error) {
-            console.log(error);
             throw error;
         }
     }

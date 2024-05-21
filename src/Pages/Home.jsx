@@ -1,10 +1,11 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import "./App.css";
-import { appwriteClient } from "./lib/appwrite";
+import "../App.css";
+import { appwriteClient } from "../lib/appwrite";
+import { useNavigate } from "react-router-dom";
 
-const SatyalokQuizForm = () => {
+const Home = () => {
     const loadingMessage = [
         "Uploading your photo",
         "Uploading your payment slip",
@@ -19,6 +20,8 @@ const SatyalokQuizForm = () => {
     const [loading, setLoading] = React.useState(false);
 
     const [error, setError] = React.useState(null);
+
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -74,8 +77,6 @@ const SatyalokQuizForm = () => {
 
             const formData = Object.fromEntries(data.entries());
 
-            console.log("Submitting form data", formData);
-
             try {
                 const photoRes = await appwriteClient.uploadPhoto(
                     formData.photo
@@ -106,8 +107,7 @@ const SatyalokQuizForm = () => {
                 });
                 setMessageIndex(5);
 
-                console.log(response);
-
+                navigate("/success/" + response.$id);
                 setLoading(false);
             } catch (error) {
                 console.error(error);
@@ -371,4 +371,4 @@ const SatyalokQuizForm = () => {
     );
 };
 
-export default SatyalokQuizForm;
+export default Home;

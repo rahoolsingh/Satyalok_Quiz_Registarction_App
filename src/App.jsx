@@ -1,5 +1,6 @@
 import "./App.css";
-import SatyalokQuizForm from "./SatyalokQuizForm";
+import SatyalokQuizForm from "./Pages/Home";
+
 
 function App() {
     return (
