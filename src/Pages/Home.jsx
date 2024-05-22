@@ -50,6 +50,7 @@ const Home = () => {
             name: "",
             fathersName: "",
             mothersName: "",
+            email:"",
             schoolID: "",
             class: "",
             schoolName: "",
@@ -65,28 +66,37 @@ const Home = () => {
             name: Yup.string().required("Required"),
             fathersName: Yup.string().required("Required"),
             mothersName: Yup.string().required("Required"),
+            email: Yup.string().email("Invalid email address").required("Required"),
             schoolID: Yup.string().required("Required"),
             class: Yup.string().required("Required"),
             schoolName: Yup.string().required("Required"),
             mediumOfStudy: Yup.string()
                 .oneOf(["Hindi", "English"], "Invalid mediumOfStudy")
                 .required("Required"),
-            photo: Yup.mixed().required("Required"),
+            photo: Yup.mixed().required("Required").test("fileType", "Unsupported File Format", value => {
+                return value && ['image/png', 'image/jpg', 'image/jpeg', 'image/webp'].includes(value.type);
+            }),
             mobile: Yup.string()
                 .matches(
                     /^[0-9]{10}$/,
                     "Must be a valid 10-digit mobile number"
                 )
                 .required("Required"),
-            paymentSlip: Yup.mixed().required("Required"),
+            paymentSlip: Yup.mixed().required("Required").test("fileType", "Unsupported File Format", value => {
+                return value && ['image/png', 'image/jpg', 'image/jpeg', 'image/webp', 'application/pdf'].includes(value.type);
+            }),
             aadhar: Yup.string()
                 .matches(
                     /^[0-9]{12}$/,
                     "Must be a valid 12-digit aadhar number"
                 )
                 .required("Required"),
-            aadharFront: Yup.mixed().required("Required"),
-            aadharBack: Yup.mixed().required("Required"),
+            aadharFront: Yup.mixed().required("Required").test("fileType", "Unsupported File Format", value => {
+                return value && ['image/png', 'image/jpg', 'image/jpeg', 'image/webp', 'application/pdf'].includes(value.type);
+            }),
+            aadharBack: Yup.mixed().required("Required").test("fileType", "Unsupported File Format", value => {
+                return value && ['image/png', 'image/jpg', 'image/jpeg', 'image/webp', 'application/pdf'].includes(value.type);
+            }),
         }),
 
         onSubmit: async (values) => {
@@ -200,7 +210,20 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        School ID/Adhar:
+                        Email:
+                        <input
+                            type="email"
+                            name="email"
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.email}
+                        />
+                        {formik.touched.email && formik.errors.email ? (
+                            <div className="error">{formik.errors.email}</div>
+                        ) : null}
+                    </label>
+                    <label>
+                        School ID/Aadhar:
                         <input
                             type="text"
                             name="schoolID"
@@ -244,7 +267,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        mediumOfStudy of Study (Select one):
+                        Medium Of Study (Select one):
                         <select
                             name="mediumOfStudy"
                             onChange={formik.handleChange}
@@ -262,7 +285,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Photo:
+                        Photo: (supported formats: jpg, png, jpeg, webp)
                         <input
                             type="file"
                             name="photo"
@@ -281,7 +304,7 @@ const Home = () => {
                     <label>
                         Mobile Number:
                         <input
-                            type="tel"
+                            type="number"
                             name="mobile"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -306,7 +329,7 @@ const Home = () => {
                     </div>
 
                     <label>
-                        Screenshot of Payment Slip:
+                        Screenshot of Payment Slip: (supported formats: jpg, png, jpeg, webp, pdf)
                         <input
                             type="file"
                             name="paymentSlip"
@@ -326,9 +349,9 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        aadhar Number:
+                        Aadhar Number:
                         <input
-                            type="text"
+                            type="number"
                             name="aadhar"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -339,7 +362,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        aadhar Front Photo:
+                        Aadhar Front Photo: (supported formats: jpg, png, jpeg, webp, pdf)
                         <input
                             type="file"
                             name="aadharFront"
@@ -359,7 +382,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        aadhar Back Photo:
+                        Aadhar Back Photo: (supported formats: jpg, png, jpeg, webp, pdf)
                         <input
                             type="file"
                             name="aadharBack"
