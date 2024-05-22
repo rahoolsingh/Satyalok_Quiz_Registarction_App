@@ -59,3 +59,7 @@ const appwriteClient = new AppwriteClient();
 
 export default AppwriteClient;
 export { appwriteClient };
+
+
+// Credits:
+// Ravi Ranjan - Developer, Chandigarh University
