@@ -4,6 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home";
 import Success from "./Pages/Success";
+import Pass from "./Pages/Pass";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -13,8 +14,17 @@ const router = createBrowserRouter([
         element: <Home />,
     },
     {
-        path: "/success/:passId",
-        element: <Success />,
+        path: "/success",
+        children: [
+            {
+                path: ":passId",
+                element: <Success />,
+            },
+            {
+                path: "pass/:passId",
+                element: <Pass />,
+            },
+        ],
     },
 ]);
 

@@ -42,11 +42,36 @@ class AppwriteClient {
             const response = await this.databases.listDocuments(
                 process.env.REACT_APP_APPWRITE_DATABASE_ID,
                 process.env.REACT_APP_APPWRITE_COLLECTION_ID,
-                [
-                    Query.equal('mobile', mobileNumber)
-                ]
+                [Query.equal("mobile", mobileNumber)]
             );
-            console.log(response);
+            return response;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    async getDocument(documentId) {
+        try {
+            const response = await this.databases.getDocument(
+                process.env.REACT_APP_APPWRITE_DATABASE_ID,
+                process.env.REACT_APP_APPWRITE_COLLECTION_ID,
+                documentId
+            );
+            return response;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    async searchDocumnetbyMobile(mobileNumber) {
+        try {
+            const response = await this.databases.listDocuments(
+                process.env.REACT_APP_APPWRITE_DATABASE_ID,
+                process.env.REACT_APP_APPWRITE_COLLECTION_ID,
+                [Query.equal("mobile", mobileNumber)]
+            );
             return response;
         } catch (error) {
             console.error(error);

@@ -1,8 +1,24 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Success() {
     const passId = useParams().passId;
+    const [timer, setTimer] = React.useState(10);
+    const navigate = useNavigate();
+
+    React.useEffect(() => {
+        const interval = setInterval(() => {
+            if (timer === 1) {
+                clearInterval(interval);
+                navigate(`/success/pass/${passId}`);
+            } else {
+                setTimer((prev) => prev - 1);
+            }
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [timer, navigate, passId]);
+
     return (
         <div className="w-full h-dvh flex justify-center items-center flex-col">
             {/* green cirlce with animated tick in middle using daisy ui and tailwind */}
@@ -34,12 +50,27 @@ function Success() {
                 Your Entry Pass ID is: <b>{passId}</b>
             </p>
 
-            <button className="mt-4 bg-green-500 text-white px-4 py-2 rounded-md">
-                Download Entry Pass
-            </button>
+            <Link
+                to={`/success/pass/${passId}`}
+                className="mt-14 bg-green-500 text-white px-4 py-2 rounded-md"
+            >
+                View Your Pass
+            </Link>
+
+            {/* 10sec countdown */}
+            <p className="text-gray-500 text-center mt-4">
+                You will be automatically redirected to the pass page in {timer}{" "}
+                seconds.
+            </p>
+            <p className="text-gray-700 text-center mt-4 px-8 text-xs">
+                You can search your pass using your mobile number by visitng the{" "}
+                <b>View Your Pass</b> page.
+            </p>
 
             <p className="mx-6 text-xs mt-8 p-3 bg-red-50 rounded-md text-justify">
-                <b>Note:</b> Your entry pass is not valid untill the payment slip is verified. Please don't forget to checkback your verification status after 24 hours.
+                <b>Note:</b> Your entry pass is not valid untill the payment
+                slip is verified. Please don't forget to checkback your
+                verification status after 24 hours.
             </p>
         </div>
     );
