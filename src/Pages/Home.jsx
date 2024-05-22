@@ -223,7 +223,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        School ID/Adhar:
+                        School ID/Aadhar:
                         <input
                             type="text"
                             name="schoolID"
@@ -304,7 +304,7 @@ const Home = () => {
                     <label>
                         Mobile Number:
                         <input
-                            type="tel"
+                            type="number"
                             name="mobile"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
@@ -351,7 +351,7 @@ const Home = () => {
                     <label>
                         Aadhar Number:
                         <input
-                            type="text"
+                            type="number"
                             name="aadhar"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
