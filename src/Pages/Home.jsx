@@ -102,7 +102,9 @@ function Home() {
                                 </div>
 
                                 <div className="max-w-sm w-fit m-auto mt-6">
-                                    <span className="font-semibold pl-3 text-sm pb-1">Payment UPI ID</span>
+                                    <span className="font-semibold pl-3 text-sm pb-1">
+                                        Payment UPI ID
+                                    </span>
                                     <div className="flex w-full justify-center items-center space-x-2">
                                         <div>
                                             <input
@@ -121,7 +123,6 @@ function Home() {
                                         </button>
                                     </div>
                                 </div>
-                                <img src={upilogo} alt="upi" className="max-w-sm w-full mt-4 m-auto" />
 
                                 <div className="m-auto text-center">
                                     {copied && (
@@ -130,6 +131,11 @@ function Home() {
                                         </span>
                                     )}
                                 </div>
+                                <img
+                                    src={upilogo}
+                                    alt="upi"
+                                    className="max-w-sm w-full mt-4 m-auto"
+                                />
                                 <div className="flex max-w-xl bg-slate-50 p-3 rounded-md m-auto flex-col items-center sm:flex-row sm:justify-center mt-4 text-sm md:text-base">
                                     <div className="w-full items-center space-y-1">
                                         <p className="font-bold">
