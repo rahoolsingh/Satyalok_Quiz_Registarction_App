@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import banner from "../assets/banner.png";
 import Footer from "../Components/Footer";
 import photoExample from "../assets/photoexamples.jpg";
+import Navbar from "../Components/Navbar";
 
 const QuizForm = () => {
     const loadingMessage = [
@@ -211,6 +212,8 @@ const QuizForm = () => {
 
     return (
         <>
+        <Navbar />
+        <div className="h-16"></div>
             {!loading && (
                 <form
                     onSubmit={formik.handleSubmit}

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Copy, Lock } from "lucide-react";
 import screenshot from "../assets/screenshot.png";
 import Footer from "../Components/Footer";
+import upilogo from "../assets/upi.png";
 function Home() {
     const upiId = "boism-9031717629@boi";
     const [copied, setCopied] = React.useState(false);
@@ -100,14 +101,17 @@ function Home() {
                                     </p>
                                 </div>
 
-                                <div className="flex flex-col items-center sm:flex-row sm:justify-center mt-6">
-                                    <div className="flex w-full max-w-sm items-center space-x-2">
-                                        <input
-                                            className="upiId flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
-                                            type="text"
-                                            value={upiId}
-                                            readOnly
-                                        />
+                                <div className="max-w-sm w-fit m-auto mt-6">
+                                    <span className="font-semibold pl-3 text-sm pb-1">Payment UPI ID</span>
+                                    <div className="flex w-full justify-center items-center space-x-2">
+                                        <div>
+                                            <input
+                                                className="upiId flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                                                type="text"
+                                                value={upiId}
+                                                readOnly
+                                            />
+                                        </div>
                                         <button
                                             type="button"
                                             onClick={handleCopyUpiId}
@@ -117,6 +121,7 @@ function Home() {
                                         </button>
                                     </div>
                                 </div>
+                                <img src={upilogo} alt="upi" className="max-w-sm w-full mt-4 m-auto" />
 
                                 <div className="m-auto text-center">
                                     {copied && (
