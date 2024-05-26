@@ -13,7 +13,7 @@ const menuItems = [
     },
     {
         name: "Check Status",
-        href: "/success",
+        href: "/check",
     },
     {
         name: "Support",

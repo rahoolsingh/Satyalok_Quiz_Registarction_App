@@ -78,6 +78,20 @@ class AppwriteClient {
             throw error;
         }
     }
+
+    async getImageById(imageId) {
+        console.log("imageId", imageId);
+        try {
+            const response = await this.storage.getFileView(
+                process.env.REACT_APP_APPWRITE_STORAGE_BUCKET_ID,
+                imageId
+            );
+            return response;
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
 }
 
 const appwriteClient = new AppwriteClient();

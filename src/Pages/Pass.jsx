@@ -17,6 +17,8 @@ function Pass() {
     const [refresh, setRefresh] = React.useState(false);
     const [code, setCode] = React.useState("");
     const passId = useParams().passId;
+    const [photoId, setPhotoId] = React.useState("");
+    const [photo, setPhoto] = React.useState(null);
 
     const loadingMessage = [
         "Loading your pass",
@@ -51,16 +53,33 @@ function Pass() {
         appwriteClient
             .getDocument(passId)
             .then((response) => {
+                console.log(response);
                 setName(response.name);
                 setVerified(response.verified);
                 setCode(response.mobile.slice(-4));
+                setPhotoId(response.photo);
                 setLoading(false);
             })
             .catch((error) => {
                 handleError(error);
                 setRenderError(true);
+                setLoading(false);
             });
     }, [passId, refresh]);
+
+    useEffect(() => {
+        if (photoId) {
+            appwriteClient
+                .getImageById(photoId)
+                .then((response) => {
+                    setPhoto(response);
+                })
+                .catch((error) => {
+                    console.error(error);
+                    handleError("Error loading photo");
+                });
+        }
+    }, [photo, photoId]);
 
     return (
         <div className="max-w-md m-auto md:p-4 min-h-dvh flex md:items-center relative print:text-black">
@@ -90,9 +109,23 @@ function Pass() {
                             className="w-[60%] m-auto h-fit"
                         />
                     </div>
-
-                    <h1 className="text-2xl font-bold">{name.toUpperCase()}</h1>
-                    <p className="text-xs">PASS ID: {passId.toUpperCase()}</p>
+                    <div className="">
+                        {photo && (
+                            <img
+                                src={photo.href}
+                                alt="User"
+                                className="w-20 h-20 rounded-full m-auto object-cover object-center border border-white print:border-black"
+                            />
+                        )}
+                        <div>
+                            <h1 className="text-2xl font-bold">
+                                {name.toUpperCase()}
+                            </h1>
+                            <p className="text-xs">
+                                PASS ID: {passId.toUpperCase()}
+                            </p>
+                        </div>
+                    </div>
 
                     {!verified && (
                         <div>
@@ -138,14 +171,10 @@ function Pass() {
                                     the venue for verification and entry.
                                 </p>
                                 <p className="space-x-2 mt-4  font-medium mb-1">
-                                    <i className="fas fa-tree  ml-2"></i>
-                                    <span>SAVE PAPER, SAVE TREES</span>
+                                    <span>
+                                        Please bring a print of this pass.
+                                    </span>
                                 </p>
-                                <p className="font-medium text-green-400">
-                                    This pass is valid digitally and does not
-                                    need to be printed.
-                                </p>
-                                
                             </div>
                         </div>
                     )}
