@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home";
 import Success from "./Pages/Success";
 import Pass from "./Pages/Pass";
+import QuizForm from "./Pages/QuizForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Home />,
+    },
+    {
+        path:"register",
+        element: <QuizForm />,
     },
     {
         path: "/success",

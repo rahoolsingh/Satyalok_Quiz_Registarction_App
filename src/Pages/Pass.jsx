@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import background from "../assets/background.png";
 import quizLogo from "../assets/quiz_logo.png";
 import logo from "../assets/satyalok_logo.png";
 import logoDark from "../assets/logoDark.png";
