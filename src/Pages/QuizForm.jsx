@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "../App.css";
@@ -203,6 +203,11 @@ const QuizForm = () => {
             }
         },
     });
+
+    useEffect(() => {
+        document.title =
+            "Registration Form - Quiz Champ 2024 | Powered by Satyalok";
+    }, []);
 
     return (
         <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Success() {
@@ -18,6 +18,10 @@ function Success() {
 
         return () => clearInterval(interval);
     }, [timer, navigate, passId]);
+
+    useEffect(() => {
+        document.title = "Form Submitted Successfully";
+    }, []);
 
     return (
         <div className="w-full h-dvh flex justify-center items-center flex-col">

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import banner1 from "../assets/banner_1.png";
 import Navbar from "../Components/Navbar";
 import { Link } from "react-router-dom";
@@ -52,6 +52,10 @@ function Home() {
 
         document.body.removeChild(textArea);
     }
+
+    useEffect(() => {
+        document.title = "Quiz Champ 2024 - Home | Presented by Satyalok";
+    }, []);
     return (
         <div className="w-full h-dvh overflow-y-auto bg-slate-200">
             <div className="max-w-7xl m-auto bg-white">

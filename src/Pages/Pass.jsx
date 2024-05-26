@@ -81,6 +81,10 @@ function Pass() {
         }
     }, [photo, photoId]);
 
+    useEffect(() => {
+        document.title = "Entry Pass - Quiz Champ 2024 | Powered by Satyalok";
+    }, []);
+
     return (
         <div className="max-w-md m-auto md:p-4 min-h-dvh flex md:items-center relative print:text-black">
             {!loading && !renderError && (
