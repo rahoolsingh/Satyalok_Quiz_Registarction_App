@@ -277,7 +277,7 @@ function Home() {
                                             </li>
                                             <li>
                                                 <b>Prizes: </b> 
-                                                Prize Distribution will be on 13th June at 05:00 PM, Venue will be Bachpan Play School, Hazari (Gomia - Bermo Road) <a className="text-blue-600 underline" href="https://maps.app.goo.gl/hw7UU53hg12Cu5a86">लोकेशन</a> and it's compulary for all participants to be there.
+                                                Prize Distribution will be on 13th June at 05:00 PM, Venue will be Bachpan Play School, Hazari (Gomia - Bermo Road) <a className="text-blue-600 underline" href="https://maps.app.goo.gl/hw7UU53hg12Cu5a86">Location</a> and it's compulary for all participants to be there.
                                             </li>
                                         </ol>
                                         <h3 className="font-bold text-xl mb-2">
@@ -326,7 +326,7 @@ function Home() {
                                             </li>
                                             <li>
                                                 <b>पुरस्कार: </b> 
-                                                पुरस्कार वितरण 13 जून को शाम 05:00 बजे होगा, स्थान बचपन प्ले स्कूल, हजारी (गोमिया - बेरमो रोड) <a className="text-blue-600 underline" href="https://maps.app.goo.gl/hw7UU53hg12Cu5a86">Location</a> है और सभी प्रतिभागियों के लिए वहां उपस्थित होना अनिवार्य है।
+                                                पुरस्कार वितरण 13 जून को शाम 05:00 बजे होगा, स्थान बचपन प्ले स्कूल, हजारी (गोमिया - बेरमो रोड) <a className="text-blue-600 underline" href="https://maps.app.goo.gl/hw7UU53hg12Cu5a86">लोकेशन</a> है और सभी प्रतिभागियों के लिए वहां उपस्थित होना अनिवार्य है।
                                             </li>
                                         </ol>
                                     </div>
