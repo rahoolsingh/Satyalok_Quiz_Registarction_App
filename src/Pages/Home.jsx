@@ -59,7 +59,7 @@ function Home() {
     }, []);
     return (
         <div className="w-full h-dvh overflow-y-auto bg-slate-200">
-            <div className="max-w-7xl m-auto bg-white">
+            <div className="max-w-7xl !m-auto bg-white">
                 <Navbar />
                 <div className="pt-14">
                     <img

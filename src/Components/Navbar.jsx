@@ -29,7 +29,7 @@ function Navbar() {
     };
 
     return (
-        <nav className="max-w-7xl w-full bg-white fixed shadow">
+        <nav className="max-w-7xl w-full m-auto bg-white fixed shadow">
             <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
                 <Link to="/" className="inline-flex items-center space-x-2">
                     <span className="font-bold">

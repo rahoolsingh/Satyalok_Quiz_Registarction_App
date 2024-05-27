@@ -6,7 +6,7 @@ import { appwriteClient } from "../lib/appwrite";
 import { useNavigate } from "react-router-dom";
 import banner from "../assets/banner.png";
 import Footer from "../Components/Footer";
-import photoExample from "../assets/photoexamples.jpg";
+// import photoExample from "../assets/photoexamples.jpg";
 import Navbar from "../Components/Navbar";
 
 const QuizForm = () => {
@@ -14,8 +14,9 @@ const QuizForm = () => {
         "Uploading your photo",
         "Uploading your payment slip",
         "Uploading your aadhar front photo",
-        "Uploading your aadhar back photo",
+        // "Uploading your aadhar back photo",
         "Submitting your form data",
+        "Just a moment...",
         "Just a moment...",
     ];
 
@@ -64,7 +65,7 @@ const QuizForm = () => {
             paymentSlip: null,
             aadhar: "",
             aadharFront: null,
-            aadharBack: null,
+            aadharBack: "Not Required",
         },
         validationSchema: Yup.object({
             name: Yup.string().required("Required"),
@@ -130,19 +131,6 @@ const QuizForm = () => {
                         ].includes(value.type)
                     );
                 }),
-            aadharBack: Yup.mixed()
-                .required("Required")
-                .test("fileType", "Unsupported File Format", (value) => {
-                    return (
-                        value &&
-                        [
-                            "image/png",
-                            "image/jpg",
-                            "image/jpeg",
-                            "image/webp",
-                        ].includes(value.type)
-                    );
-                }),
         }),
 
         onSubmit: async (values) => {
@@ -181,17 +169,17 @@ const QuizForm = () => {
                 );
                 setMessageIndex(3);
 
-                const aadharBackRes = await appwriteClient.uploadPhoto(
-                    formData.aadharBack
-                );
-                setMessageIndex(4);
+                // const aadharBackRes = await appwriteClient.uploadPhoto(
+                //     formData.aadharBack
+                // );
+                // setMessageIndex(4);
 
                 const response = await appwriteClient.createDocument({
                     ...formData,
                     photo: photoRes.$id,
                     paymentSlip: paymentSlipRes.$id,
                     aadharFront: aadharFrontRes.$id,
-                    aadharBack: aadharBackRes.$id,
+                    // aadharBack: aadharBackRes.$id,
                 });
                 setMessageIndex(5);
 
@@ -212,7 +200,9 @@ const QuizForm = () => {
 
     return (
         <>
-        <Navbar />
+        <div className="w-full flex justify-center">
+            <Navbar />
+        </div>
         <div className="h-16"></div>
             {!loading && (
                 <form
@@ -466,18 +456,14 @@ const QuizForm = () => {
                                 </div>
                             ) : null}
                         </label>
-                        <label>
+                        <label className="!hidden">
                             Aadhar Back Photo: (supported formats: jpg, png,
                             jpeg, webp)
-                            <input
-                                type="file"
+                            <input 
+                                type="text"
                                 name="aadharBack"
-                                onChange={(event) =>
-                                    formik.setFieldValue(
-                                        "aadharBack",
-                                        event.currentTarget.files[0]
-                                    )
-                                }
+                                onChange={formik.handleChange}
+                                value = "Not Required"
                                 onBlur={formik.handleBlur}
                             />
                             {formik.touched.aadharBack &&
