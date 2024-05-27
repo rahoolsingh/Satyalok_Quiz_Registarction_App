@@ -165,7 +165,7 @@ const Home = () => {
                 <form onSubmit={formik.handleSubmit} className="quiz-form">
                     <h1>SATYALOK MEGA QUIZ COMPETITION</h1>
                     <label>
-                        Name:
+                        <p>Name<span> *</span>:</p>
                         <input
                             type="text"
                             name="name"
@@ -178,7 +178,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Father's Name:
+                        <p>Father's Name<span> *</span>:</p>
                         <input
                             type="text"
                             name="fathersName"
@@ -194,7 +194,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Mother's Name:
+                        <p>Mother's Name<span> *</span>:</p>
                         <input
                             type="text"
                             name="mothersName"
@@ -210,7 +210,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Email:
+                        <p>Email<span> *</span>:</p>
                         <input
                             type="email"
                             name="email"
@@ -223,7 +223,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        School ID/Aadhar:
+                        <p>School ID/Aadhar<span> *</span>:</p>
                         <input
                             type="text"
                             name="schoolID"
@@ -238,7 +238,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Class:
+                        <p>Class<span> *</span>:</p>
                         <input
                             type="text"
                             name="class"
@@ -251,7 +251,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        School Name:
+                        <p>School Name<span> *</span>:</p>
                         <input
                             type="text"
                             name="schoolName"
@@ -267,7 +267,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Medium Of Study (Select one):
+                        <p>Medium Of Study (Select one)<span> *</span>:</p>
                         <select
                             name="mediumOfStudy"
                             onChange={formik.handleChange}
@@ -285,7 +285,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Photo: (supported formats: jpg, png, jpeg, webp)
+                        <p>Photo<span> *</span>:(supported formats: jpg, png, jpeg, webp)</p>
                         <input
                             type="file"
                             name="photo"
@@ -302,7 +302,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Mobile Number:
+                        <p>Mobile Number<span> *</span>:</p>
                         <input
                             type="number"
                             name="mobile"
@@ -329,7 +329,7 @@ const Home = () => {
                     </div>
 
                     <label>
-                        Screenshot of Payment Slip: (supported formats: jpg, png, jpeg, webp, pdf)
+                        <p>Screenshot of Payment Slip<span> *</span>: (supported formats: jpg, png, jpeg, webp, pdf)</p>
                         <input
                             type="file"
                             name="paymentSlip"
@@ -349,7 +349,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Aadhar Number:
+                        <p>Aadhar Number<span> *</span>:</p>
                         <input
                             type="number"
                             name="aadhar"
@@ -362,7 +362,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Aadhar Front Photo: (supported formats: jpg, png, jpeg, webp, pdf)
+                        <p>Aadhar Front Photo<span> *</span>: (supported formats: jpg, png, jpeg, webp, pdf)</p>
                         <input
                             type="file"
                             name="aadharFront"
@@ -382,7 +382,7 @@ const Home = () => {
                         ) : null}
                     </label>
                     <label>
-                        Aadhar Back Photo: (supported formats: jpg, png, jpeg, webp, pdf)
+                        <p>Aadhar Back Photo<span> *</span>: (supported formats: jpg, png, jpeg, webp, pdf)</p>
                         <input
                             type="file"
                             name="aadharBack"

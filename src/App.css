@@ -78,8 +78,8 @@ input::-webkit-inner-spin-button {
 .error {
   color: #ff0000;
   font-size: 12px;
-  margin-top: -10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .fee-info {
@@ -90,6 +90,10 @@ input::-webkit-inner-spin-button {
 
 .fee-info .bold {
   font-weight: bold;
+  color: #ff0000;
+}
+
+span {
   color: #ff0000;
 }
 
