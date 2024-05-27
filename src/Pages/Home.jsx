@@ -223,6 +223,97 @@ function Home() {
                                         Fill the registration form with the
                                         required details
                                     </p>
+                                    <div className="text-left mx-auto mt-8 max-w-2xl leading-relaxed">
+                                        <h3 className="font-bold text-xl mb-2">
+                                            Exam Rules (English)
+                                        </h3>
+                                        <ol className="list-decimal pl-6 mb-6">
+                                            <li>
+                                                <b>Eligibility: </b>
+                                                Students from class 6th to 12th are eligible for this quiz competition.
+                                            </li>
+                                            <li>
+                                                <b>Number of Questions: </b>
+                                                There will be 60 questions.
+                                            </li>
+                                            <li>
+                                                <b>Negative Marking: </b>
+                                                For each incorrect answer, half
+                                                mark will be deducted.
+                                            </li>
+                                            <li>
+                                                <b>Time Limit: </b>
+                                                The total duration of the exam
+                                                is 60 minutes.
+                                            </li>
+                                            <li>
+                                                <b>Arrival Time: </b>
+                                                All participants must arrive 30
+                                                minutes before the exam starts.
+                                            </li>
+                                            <li>
+                                                <b>Punctuality: </b>
+                                                The exam will start and end
+                                                exactly on time. Latecomers will
+                                                receive the question paper but
+                                                will have less time to complete
+                                                it.
+                                            </li>
+                                            <li>
+                                                <b>Mobile Phones: </b>
+                                                Mobile phones are not allowed in the exam hall. If you bring a mobile phone, ensure you have someone to keep it for you during the exam.
+                                            </li>
+                                            <li>
+                                                <b>Limited Seats: </b> 
+                                                We have limited seats, so registration may close before the last date if capacity is reached.
+                                            </li>
+                                            <li>
+                                                <b>Disqualification: </b> 
+                                                Any form of malpractice during the exam will result in disqualification.
+                                            </li>
+                                        </ol>
+                                        <h3 className="font-bold text-xl mb-2">
+                                            परीक्षा के नियम (हिंदी)
+                                        </h3>
+                                        <ol className="list-decimal pl-6">
+                                            <li>
+                                                <b>पात्रता: </b> 
+                                                कक्षा 6वीं से 12वीं तक के छात्र इस क्विज प्रतियोगिता के लिए पात्र हैं।
+                                            </li>
+                                            <li>
+                                                <b>प्रश्नों की संख्या: </b>
+                                                परीक्षा में 60 प्रश्न होंगे।
+                                            </li>
+                                            <li>
+                                                <b>नकारात्मक अंकन: </b> 
+                                                प्रत्येक गलत उत्तर पर आधा अंक काटा जाएगा।
+                                            </li>
+                                            <li>
+                                                <b>समय सीमा: </b> 
+                                                परीक्षा की कुल अवधि 60 मिनट है।
+                                            </li>
+                                            <li>
+                                                <b>आगमन समय: </b> 
+                                                सभी प्रतिभागियों को परीक्षा शुरू होने से 30 मिनट पहले पहुंचना होगा।
+                                            </li>
+                                            <li>
+                                                <b>समय की पाबंदी: </b> 
+                                                परीक्षा समय पर शुरू और समाप्त होगी। देर से आने वालों को प्रश्न पत्र तो मिलेगा, लेकिन उन्हें कम समय मिलेगा।
+                                            </li>
+                                            <li>
+                                                <b>मोबाइल फोन: </b> 
+                                                कक्ष में मोबाइल फोन की अनुमति नहीं है। यदि आप मोबाइल फोन लाते हैं, तो सुनिश्चित करें कि आपके साथ कोई ऐसा व्यक्ति हो जो परीक्षा के दौरान इसे संभाल सके।
+                                            </li>
+                                            <li>
+                                                <b>सीमित सीटें: </b> 
+                                                हमारे पास सीमित सीटें हैं, इसलिए हो सकता है कि हम अंतिम तिथि से पहले ही पंजीकरण बंद कर दें।
+                                            </li>
+                                            <li>
+                                                <b>अयोग्यता: </b> 
+                                                परीक्षा के दौरान किसी भी प्रकार की गलत गतिविधि करने पर आपको अयोग्य घोषित किया जा सकता है।
+                                            </li>
+                                        </ol>
+                                    </div>
                                     <Link
                                         to="/register"
                                         className="inline-block px-6 py-3 mt-4 text-sm font-semibold leading-tight text-white bg-orange-500 rounded-md hover:bg-orange-600"
