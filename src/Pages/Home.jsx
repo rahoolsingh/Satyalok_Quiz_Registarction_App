@@ -244,7 +244,7 @@ function Home() {
                                             <li>
                                                 <b>Time Limit: </b>
                                                 The total duration of the exam
-                                                is 60 minutes.
+                                                is 75 minutes.
                                             </li>
                                             <li>
                                                 <b>Arrival Time: </b>
@@ -271,6 +271,14 @@ function Home() {
                                                 <b>Disqualification: </b> 
                                                 Any form of malpractice during the exam will result in disqualification.
                                             </li>
+                                            <li>
+                                                <b>Result: </b> 
+                                                Result will be declared through our <a className="text-blue-600 underline" href="https://satyalok.in/resultquizchamp">website</a> on 11th June at 05:00 PM.
+                                            </li>
+                                            <li>
+                                                <b>Prizes: </b> 
+                                                Prize Distribution will be on 13th June at 05:00 PM, Venue will be ........... and it's compulary for all participants to be there.
+                                            </li>
                                         </ol>
                                         <h3 className="font-bold text-xl mb-2">
                                             परीक्षा के नियम (हिंदी)
@@ -290,7 +298,7 @@ function Home() {
                                             </li>
                                             <li>
                                                 <b>समय सीमा: </b> 
-                                                परीक्षा की कुल अवधि 60 मिनट है।
+                                                परीक्षा की कुल अवधि 75 मिनट है।
                                             </li>
                                             <li>
                                                 <b>आगमन समय: </b> 
@@ -311,6 +319,14 @@ function Home() {
                                             <li>
                                                 <b>अयोग्यता: </b> 
                                                 परीक्षा के दौरान किसी भी प्रकार की गलत गतिविधि करने पर आपको अयोग्य घोषित किया जा सकता है।
+                                            </li>
+                                            <li>
+                                                <b>परिणाम: </b> 
+                                                परिणाम हमारी <a className="text-blue-600 underline" href="https://satyalok.in/resultquizchamp">वेबसाइट</a> के माध्यम से 11 जून को शाम 05:00 बजे घोषित किया जाएगा।
+                                            </li>
+                                            <li>
+                                                <b>पुरस्कार: </b> 
+                                                पुरस्कार वितरण 13 जून को शाम 05:00 बजे होगा, स्थान ........... है और सभी प्रतिभागियों के लिए वहां उपस्थित होना अनिवार्य है।
                                             </li>
                                         </ol>
                                     </div>

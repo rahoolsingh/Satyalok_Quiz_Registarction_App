@@ -466,7 +466,7 @@ const QuizForm = () => {
                                 </div>
                             ) : null}
                         </label>
-                        <label>
+                        {/* <label>
                             Aadhar Back Photo: (supported formats: jpg, png,
                             jpeg, webp)
                             <input
@@ -486,7 +486,7 @@ const QuizForm = () => {
                                     {formik.errors.aadharBack}
                                 </div>
                             ) : null}
-                        </label>
+                        </label> */}
                         <div className="lg:flex items-center justify-end">
                             <button
                                 className="h-fit lg:mr-5 lg:!px-8 w-full lg:w-fit"
