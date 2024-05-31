@@ -149,6 +149,13 @@ function Pass() {
                                 <p>
                                     Please wait 24 hours after form submission.
                                 </p>
+                                <p>Verification starting from 1st June 2024.</p>
+                                <p className="space-x-2 mt-4  font-medium mb-1">
+                                    <small>
+                                        We are geeting a high volume of
+                                        requests. Please be patient.
+                                    </small>
+                                </p>
                             </div>
                         </div>
                     )}
