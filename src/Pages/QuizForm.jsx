@@ -453,7 +453,7 @@ const QuizForm = () => {
                             <img
                                 src={payUPI}
                                 alt="payUPI"
-                                className="w-96 mb-6 border border-orange-500"
+                                className="w-96 mb-6 border-4 border-orange-500"
                             />
                         </div>
 
