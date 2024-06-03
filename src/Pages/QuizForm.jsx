@@ -8,6 +8,9 @@ import banner from "../assets/banner.png";
 import Footer from "../Components/Footer";
 // import photoExample from "../assets/photoexamples.jpg";
 import Navbar from "../Components/Navbar";
+import payUPI from "../assets/UPI.jpg";
+import upilogo from "../assets/upi.png";
+import { Copy } from "lucide-react";
 
 const QuizForm = () => {
     const loadingMessage = [
@@ -193,6 +196,53 @@ const QuizForm = () => {
         },
     });
 
+    const upiId = "boism-9031717629@boi";
+    const [copied, setCopied] = React.useState(false);
+
+    const handleCopyUpiId = () => {
+        const upiID = upiId; // Replace with the actual UPI ID
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard
+                .writeText(upiID)
+                .then(() => {
+                    setCopied(true);
+                    setTimeout(() => {
+                        setCopied(false);
+                    }, 3000);
+
+                    document.querySelector(".upiId").focus();
+                })
+                .catch((err) => {
+                    fallbackCopyTextToClipboard(upiID);
+                });
+        } else {
+            fallbackCopyTextToClipboard(upiID);
+        }
+    };
+
+    function fallbackCopyTextToClipboard(text) {
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        textArea.style.position = "fixed"; // Avoid scrolling to bottom
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            document.execCommand("copy");
+            document.querySelector(".upiId").focus();
+            setCopied(true);
+            setTimeout(() => {
+                setCopied(false);
+            }, 3000);
+        } catch (err) {
+            alert("Failed to copy UPI ID");
+        }
+
+        document.body.removeChild(textArea);
+    }
+
     useEffect(() => {
         document.title =
             "Registration Form - Quiz Champ 2024 | Powered by Satyalok";
@@ -200,10 +250,10 @@ const QuizForm = () => {
 
     return (
         <>
-        <div className="w-full flex justify-center">
-            <Navbar />
-        </div>
-        <div className="h-16"></div>
+            <div className="w-full flex justify-center">
+                <Navbar />
+            </div>
+            <div className="h-16"></div>
             {!loading && (
                 <form
                     onSubmit={formik.handleSubmit}
@@ -343,7 +393,8 @@ const QuizForm = () => {
                         </label>
 
                         <label>
-                            Photo: (supported formats: jpg, png, jpeg, webp)
+                            Participant Photo: (supported formats: jpg, png,
+                            jpeg, webp)
                             <input
                                 type="file"
                                 name="photo"
@@ -370,7 +421,7 @@ const QuizForm = () => {
                             </p> */}
                         </label>
                         <label>
-                            Mobile Number:
+                            Mobile Number (WhatsApp):
                             <input
                                 type="number"
                                 name="mobile"
@@ -398,6 +449,49 @@ const QuizForm = () => {
                                 upload the payment screenshot below.
                             </p>
                         </div>
+                        <div className="flex justify-center">
+                            <img
+                                src={payUPI}
+                                alt="payUPI"
+                                className="w-96 mb-6 border border-orange-500"
+                            />
+                        </div>
+
+                        <div className="max-w-sm w-fit m-auto">
+                            <span className="font-semibold pl-3 text-sm pb-1">
+                                Payment UPI ID
+                            </span>
+                            <div className="flex w-full justify-center items-center space-x-2">
+                                <div>
+                                    <input
+                                        className="upiId flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 "
+                                        type="text"
+                                        value={upiId}
+                                        readOnly
+                                    />
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={handleCopyUpiId}
+                                    className="flex items-center justify-center rounded-md text-gray-600 hover:text-black focus:outline-none"
+                                >
+                                    <Copy />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="m-auto text-center">
+                            {copied && (
+                                <span className="text-green-500 text-sm">
+                                    Copied
+                                </span>
+                            )}
+                        </div>
+                        <img
+                            src={upilogo}
+                            alt="upi"
+                            className="max-w-sm w-full mt-4 m-auto mb-5"
+                        />
 
                         <label>
                             Screenshot of Payment Slip: (supported formats: jpg,
@@ -459,11 +553,11 @@ const QuizForm = () => {
                         <label className="!hidden">
                             Aadhar Back Photo: (supported formats: jpg, png,
                             jpeg, webp)
-                            <input 
+                            <input
                                 type="text"
                                 name="aadharBack"
                                 onChange={formik.handleChange}
-                                value = "Not Required"
+                                value="Not Required"
                                 onBlur={formik.handleBlur}
                             />
                             {formik.touched.aadharBack &&
@@ -475,7 +569,7 @@ const QuizForm = () => {
                         </label>
                         <div className="lg:flex items-center justify-end">
                             <button
-                                className="h-fit lg:mr-5 lg:!px-8 w-full lg:w-fit"
+                                className="btn h-fit lg:mr-5 lg:!px-8 w-full lg:w-fit"
                                 type="submit"
                             >
                                 Submit
