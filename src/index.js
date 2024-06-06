@@ -7,17 +7,18 @@ import Success from "./Pages/Success";
 import Pass from "./Pages/Pass";
 import QuizForm from "./Pages/QuizForm";
 import Check from "./Pages/Check";
+import Closed from "./Pages/Closed";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
+        element: <Closed />,
     },
     {
         path:"register",
-        element: <QuizForm />,
+        element: <Closed />,
     },
     {
         path: "/check",
