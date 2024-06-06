@@ -39,7 +39,7 @@ function Closed() {
 
     return (
         <div className="h-screen flex flex-col justify-center items-center bg-gradient-to-r from-blue-800 via-purple-700 to-pink-500 text-white p-4">
-            <img src={logo} alt="Satyalok logo" className="h-16 sm:h-20 mt-4" />
+            <img src={logo} alt="Satyalok logo" className="h-16 sm:h-20" />
 
             <p className="text-center text-lg mb-4">Presents</p>
             <img
@@ -51,52 +51,54 @@ function Closed() {
             <h1 className="text-center text-3xl sm:text-4xl font-extrabold mb-6 drop-shadow-lg animate-pulse">
                 Quiz Champ 2024
             </h1>
-            <p className="text-center text-xl sm:text-2xl mb-8 shadow-lg bg-black/30 p-4 rounded-lg">
+            <p className="text-center sm:text-xl md:text-2xl sm:mb-8 shadow-lg bg-black/30 p-4 rounded-lg">
                 Oops! Registration for Quiz Champ 2024 is now closed.
             </p>
 
             {/* Event counter */}
-            <div className="flex flex-col sm:flex-row justify-center items-center mt-4 space-y-4 sm:space-y-0 sm:space-x-4 bg-black/30 p-6 rounded-lg shadow-xl">
+            <div className="flex justify-center items-center mt-4 gap-2 sm:space-y-0 sm:space-x-4 bg-black/30 p-6 rounded-lg shadow-xl">
                 <div className="flex flex-col items-center">
-                    <span className="text-4xl sm:text-6xl font-bold drop-shadow-xl">
-                        <span id="days" className="">
-                            00
-                        </span>
+                    <span className="text-lg sm:text-6xl font-bold drop-shadow-xl">
+                        <span id="days">00</span>
+                        <span className="text-lg sm:hidden">d</span>
                     </span>
-                    <span className="text-lg">Days</span>
+                    <span className="text-lg hidden sm:inline">Days</span>
                 </div>
-                .
                 <div className="flex flex-col items-center">
-                    <span className="text-4xl sm:text-6xl font-bold drop-shadow-xl">
+                    <span className="text-lg sm:text-6xl font-bold drop-shadow-xl">
                         <span id="hours">00</span>
+                        <span className="text-lg sm:hidden">h</span>
                     </span>
-                    <span className="text-lg">Hours</span>
+                    <span className="text-lg hidden sm:inline">Hours</span>
                 </div>
-                .
                 <div className="flex flex-col items-center">
-                    <span className="text-4xl sm:text-6xl font-bold drop-shadow-xl">
+                    <span className="text-lg sm:text-6xl font-bold drop-shadow-xl">
                         <span id="minutes">00</span>
+                        <span className="text-lg sm:hidden">m</span>
                     </span>
-                    <span className="text-lg">Minutes</span>
+                    <span className="text-lg hidden sm:inline">Minutes</span>
                 </div>
-                .
                 <div className="flex flex-col items-center">
-                    <span className="text-4xl sm:text-6xl font-bold drop-shadow-xl">
+                    <span className="text-lg sm:text-6xl font-bold drop-shadow-xl">
                         <span id="seconds">00</span>
+                        <span className="text-lg sm:hidden">s</span>
                     </span>
-                    <span className="text-lg">Seconds</span>
+                    <span className="text-lg hidden sm:inline">Seconds</span>
                 </div>
             </div>
 
             <div className="mt-8 flex flex-col items-center space-y-4">
-                <p className="text-center text-lg mb-4">
-                    Already enrolled? Check your pass status{" "}
-                    <a href="/check" className="px-2 py-1 bg-green-500 rounded-lg">
-                       Check Pass Status
-                    </a>
-                    .
+                <p className="text-center text-xs sm:text-lg">
+                    Already enrolled? Check your pass status
                 </p>
-                <p className="text-center text-lg mb-4">
+
+                <a
+                    href="/check"
+                    className="px-2 py-1 bg-green-500 rounded-lg whitespace-nowrap my-2 text-sm"
+                >
+                    Check Pass Status
+                </a>
+                <p className="text-center text-xs sm:text-lg mb-4">
                     Contact us on WhatsApp
                     <a
                         href="https://wa.me/+916204743523"
@@ -105,7 +107,7 @@ function Closed() {
                         +91 6204 743 523
                     </a>
                 </p>
-                <p className="text-center text-lg mb-4 max-w-md">
+                <p className="text-center text-xs sm:text-lg mb-4 max-w-md">
                     Don't sweat it! The next round of Quiz Champ is just around
                     the corner. Get ready to flex those brain muscles and claim
                     your crown!
